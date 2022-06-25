@@ -35,75 +35,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var book_1 = require("../models/book");
-var store = new book_1.BookStore();
-describe("Book Model", function () {
-    it('should have an index method', function () {
-        expect(store.index).toBeDefined();
-    });
-    it('should have a show method', function () {
-        expect(store.index).toBeDefined();
-    });
-    it('should have a create method', function () {
-        expect(store.index).toBeDefined();
-    });
-    it('should have a update method', function () {
-        expect(store.index).toBeDefined();
-    });
-    it('should have a delete method', function () {
-        expect(store.index).toBeDefined();
-    });
-    it('create method should add a book', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var result;
+var supertest_1 = __importDefault(require("supertest"));
+var index_1 = __importDefault(require("../index"));
+var request = (0, supertest_1.default)(index_1.default);
+describe('Test index endpoint response', function () {
+    it('test hello world endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, store.create({
-                        id: 1,
-                        title: 'Bridge to Terabithia',
-                        author: 'Katherine Paterson',
-                        total_pages: 250,
-                        book_type: 'Childrens',
-                        summary: 'Good Book'
-                    })];
+                case 0: return [4 /*yield*/, request.get('/')];
                 case 1:
-                    result = _a.sent();
-                    expect(result).toEqual({
-                        id: 1,
-                        title: 'Bridge to Terabithia',
-                        author: 'Katherine Paterson',
-                        total_pages: 250,
-                        book_type: 'Childrens',
-                        summary: 'Good Book'
-                    });
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
                     return [2 /*return*/];
             }
         });
     }); });
-    // it('index method should return a list of books', async () => {
-    //   const result = await store.index();
-    //   expect(result).toEqual([{
-    //     id: 1,
-    //     title: 'Bridge to Terabithia',
-    //     total_pages: 250,
-    //     author: 'Katherine Paterson',
-    //     type:'Childrens',
-    //     summary: 'hhhh'
-    //   }]);
-    // });
-    // it('show method should return the correct book', async () => {
-    //   const result = await store.show(1);
-    //   expect(result).toEqual({
-    //     id: 1,
-    //     title: 'Bridge to Terabithia',
-    //     totalPages: 250,
-    //     author: 'Katherine Paterson',
-    //     summary: 'Childrens'
-    //   });
-    // });
-    // it('delete method should remove the book', async () => {
-    //   store.delete(1);
-    //   const result = await store.index()
-    //   expect(result).toEqual([]);
-    // });
 });

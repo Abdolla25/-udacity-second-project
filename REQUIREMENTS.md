@@ -4,28 +4,66 @@ The company stakeholders want to create an online storefront to showcase their g
 These are the notes from a meeting with the frontend developer that describe what endpoints the API needs to supply, as well as data shapes the frontend and backend have agreed meet the requirements of the application. 
 
 ## API Endpoints
-#### Products
-- Index 
-- Show
-- Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+I used different request methods as endpoints:
+1. GET ALL.
+2. GET ONE.
+3. CREATE ONE.
+4. UPDATE ONE.
+5. DELETE ONE.
+
+for each model, it should have all these endpoits depend on request type as following:
+
 
 #### Users
-- Index [token required]
-- Show [token required]
-- Create N[token required]
+endpoint: `/user/`
+
+#### Products
+endpoint: `/product/`
+
+#### Orders
+endpoint: `/order/`
+
+##### GET ALL
+- Method: `GET`.
+- Parametes: `None`.
+- Success Respone: `Code 200` with JSON object contains all data from database.
+- Error Respone: `Code 404/401` with JSON object contains error message.
+- example: `/user/`
+
+##### GET ONE
+- Method: `GET`.
+- Parametes: `:id`.
+- Success Respone: `Code 200` with JSON object contains the required data from database.
+- Error Respone: `Code 404/401` with JSON object contains error message.
+- example: `/user/1`
+
+##### CREATE ONE
+- Method: `POST`.
+- Parametes: `None`.
+- Success Respone: `Code 200` with JSON object contains the created data from database.
+- Error Respone: `Code 404/401` with JSON object contains error message.
+
+##### UPDATE ONE
+- Method: `PUT`.
+- Parametes: `:id`.
+- Success Respone: `Code 200` with JSON object contains the updated data from database.
+- Error Respone: `Code 404/401` with JSON object contains error message.
+
+##### DELETE ONE
+- Method: `DELETE`.
+- Parametes: `:id`.
+- Success Respone: `Code 200` with JSON object contains the updated data from database.
+- Error Respone: `Code 404/401` with JSON object contains error message.
 
 #### Orders
 - Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+- Completed Orders by user (args: user id)[token required]
 
 ## Data Shapes
 #### Product
 -  id
 - name
 - price
-- [OPTIONAL] category
 
 #### User
 - id
