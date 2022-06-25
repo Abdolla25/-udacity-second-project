@@ -28,14 +28,14 @@ endpoint: `/order/`
 - Parametes: `None`.
 - Success Respone: `Code 200` with JSON object contains all data from database.
 - Error Respone: `Code 404/401` with JSON object contains error message.
-- example: `/user/`
+- example: `/user/`.
 
 ##### GET ONE
 - Method: `GET`.
 - Parametes: `:id`.
 - Success Respone: `Code 200` with JSON object contains the required data from database.
 - Error Respone: `Code 404/401` with JSON object contains error message.
-- example: `/user/1`
+- example: `/user/1`.
 
 ##### CREATE ONE
 - Method: `POST`.
