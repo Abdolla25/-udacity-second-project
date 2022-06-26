@@ -39,18 +39,52 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../index"));
-var request = (0, supertest_1.default)(index_1.default);
-describe('Test index endpoint response', function () {
-    it('test server host and port respone on its index (200)', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
+var user_model_1 = require("../../models/user.model");
+var database_1 = __importDefault(require("../../database"));
+var userModel = new user_model_1.UserModel();
+describe('Test Authentication from User Model', function () {
+    var testData = {
+        userName: 'testUser',
+        firstName: 'First',
+        lastName: 'Last',
+        password: 'Password',
+    };
+    beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var createTest;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/')];
+                case 0: return [4 /*yield*/, userModel.create(testData)];
                 case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
+                    createTest = _a.sent();
+                    testData.id = createTest.id;
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    afterAll(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var conn, sql;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, database_1.default.connect()];
+                case 1:
+                    conn = _a.sent();
+                    sql = "DELETE FROM users; \nALTER SEQUENCE users_id_seq RESTART WITH 1;";
+                    return [4 /*yield*/, conn.query(sql)];
+                case 2:
+                    _a.sent();
+                    conn.release();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('test auth correct user and password', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var testAuth;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, userModel.authenticateOne(testData.userName, testData.password)];
+                case 1:
+                    testAuth = _a.sent();
+                    expect(testAuth).toBeDefined;
                     return [2 /*return*/];
             }
         });

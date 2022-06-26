@@ -1,32 +1,32 @@
 import express, { Application, Request, Response } from 'express'
 import morgan from 'morgan'
-import * as dotenv from 'dotenv'
-import user from './routes/user'
-import product from './routes/product'
-import order from './routes/order'
+import helmet from 'helmet'
+import { PORT } from './config'
+import api from './routes'
 
-dotenv.config()
+const port = PORT || 3000
 
-const PORT = process.env.PORT || 3000
-// create an instance server
 const app: Application = express()
-// HTTP request logger middleware
+
+// Logging middleware
 app.use(morgan('short'))
 
-// add routing for / path
+// JSON parsing middleware
+app.use(express.json())
+
+// Security profile middleware
+app.use(helmet())
+
+// Index Route
 app.get('/', (req: Request, res: Response) => {
   res.json({ message: 'Hello World 🌍' })
 })
 
-app.use('/user', user)
+// API Routes middleware
+app.use('/api', api)
 
-app.use('/product', product)
-
-app.use('/order', order)
-
-// start express server
-app.listen(PORT, () => {
-  console.log(`Server is starting at port:${PORT}`)
+app.listen(port, () => {
+  console.log(`Server is starting at port:${port}`)
 })
 
 export default app

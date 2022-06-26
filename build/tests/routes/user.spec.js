@@ -39,15 +39,90 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.JWT = void 0;
 var supertest_1 = __importDefault(require("supertest"));
-var index_1 = __importDefault(require("../index"));
+var index_1 = __importDefault(require("../../index"));
+var database_1 = __importDefault(require("../../database"));
+var user_model_1 = require("../../models/user.model");
+var userModel = new user_model_1.UserModel();
 var request = (0, supertest_1.default)(index_1.default);
-describe('Test user endpoint response', function () {
+exports.JWT = '';
+describe('Test user endpoint', function () {
+    var testData = {
+        userName: 'testUser',
+        firstName: 'First',
+        lastName: 'Last',
+        password: 'Password',
+    };
+    beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var createTest;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, userModel.create(testData)];
+                case 1:
+                    createTest = _a.sent();
+                    testData.id = createTest.id;
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    afterAll(function () { return __awaiter(void 0, void 0, void 0, function () {
+        var conn, sql;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, database_1.default.connect()];
+                case 1:
+                    conn = _a.sent();
+                    sql = "DELETE FROM users; \nALTER SEQUENCE users_id_seq RESTART WITH 1;";
+                    return [4 /*yield*/, conn.query(sql)];
+                case 2:
+                    _a.sent();
+                    conn.release();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('test auth endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.post('/api/user/auth').set('content-type', 'application/json')
+                        .send({
+                        userName: 'testUser',
+                        password: 'Password',
+                    })];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    exports.JWT = response.body.data.JWT;
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+    it('test create endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+        var response;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, request.post('/api/user').set('content-type', 'application/json')
+                        .send({
+                        userName: 'testUserRandom',
+                        firstName: 'First',
+                        lastName: 'Last',
+                        password: 'Password',
+                    })];
+                case 1:
+                    response = _a.sent();
+                    expect(response.status).toBe(200);
+                    return [2 /*return*/];
+            }
+        });
+    }); });
     it('test get all endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/user')];
+                case 0: return [4 /*yield*/, request.get('/api/user').set('content-type', 'application/json')
+                        .set('authorization', "Bearer ".concat(exports.JWT))];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -59,7 +134,8 @@ describe('Test user endpoint response', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/user/1')];
+                case 0: return [4 /*yield*/, request.get("/api/user/".concat(testData.id)).set('content-type', 'application/json')
+                        .set('authorization', "Bearer ".concat(exports.JWT))];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -67,11 +143,19 @@ describe('Test user endpoint response', function () {
             }
         });
     }); });
-    it('test create endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('test update one endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/user')];
+                case 0: return [4 /*yield*/, request.put('/api/user').set('content-type', 'application/json')
+                        .set('authorization', "Bearer ".concat(exports.JWT))
+                        .send({
+                        id: 2,
+                        userName: 'testUserRandomUpdated',
+                        firstName: 'First',
+                        lastName: 'Last',
+                        password: 'PasswordUpdated',
+                    })];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
@@ -79,147 +163,12 @@ describe('Test user endpoint response', function () {
             }
         });
     }); });
-    it('test update endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('test delete one endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.put('/user/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test delete endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.delete('/user/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
-describe('Test product endpoint response', function () {
-    it('test get all endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/product')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test get one endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/product/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test create endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/product')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test update endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.put('/product/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test delete endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.delete('/product/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-});
-describe('Test order endpoint response', function () {
-    it('test get all endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/order')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test get one endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/order/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test create endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/order')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test update endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.put('/order/1')];
-                case 1:
-                    response = _a.sent();
-                    expect(response.status).toBe(200);
-                    return [2 /*return*/];
-            }
-        });
-    }); });
-    it('test delete endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
-        var response;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, request.delete('/order/1')];
+                case 0: return [4 /*yield*/, request.delete("/api/user/".concat(testData.id)).set('content-type', 'application/json')
+                        .set('authorization', "Bearer ".concat(exports.JWT))];
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);

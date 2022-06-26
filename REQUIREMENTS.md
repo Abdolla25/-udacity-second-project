@@ -4,77 +4,39 @@ The company stakeholders want to create an online storefront to showcase their g
 These are the notes from a meeting with the frontend developer that describe what endpoints the API needs to supply, as well as data shapes the frontend and backend have agreed meet the requirements of the application. 
 
 ## API Endpoints
-I used different request methods as endpoints:
-1. GET ALL.
-2. GET ONE.
-3. CREATE ONE.
-4. UPDATE ONE.
-5. DELETE ONE.
 
-for each model, it should have all these endpoits depend on request type as following:
+### `/user` endpoint
+this endpoint enables you to apply one of the following methods:
+|   Operation   |         Method         |       JWT       | arguments |
+| :-----------: | :--------------------- | :-------------: | :-------: |
+| GET ALL       | `GET /api/user`        | [require token] |           |
+| GET ONE       | `GET /api/user/:id`    | [require token] | [arg: id] |
+| CREATE ONE    | `POST /api/user`       |                 |           |
+| UPDATE ONE    | `PUT /api/user`        | [require token] |           |
+| DELETE ONE    | `DELETE /api/user/:id` | [require token] | [arg: id] |
 
+### `/product` endpoint
+this endpoint enables you to apply one of the following methods:
+|   Operation   | Method                    |       JWT       | arguments |
+| :-----------: | :------------------------ | :-------------: | :-------: |
+| GET ALL       | `GET /api/product`        |                 |           |
+| GET ONE       | `GET /api/product/:id`    |                 | [arg: id] |
+| CREATE ONE    | `POST /api/product`       | [require token] |           |
+| UPDATE ONE    | `PUT /api/product`        | [require token] |           |
+| DELETE ONE    | `DELETE /api/product/:id` | [require token] | [arg: id] |
 
-#### Users
-endpoint: `/user/`
+### `/order` endpoint
+this endpoint enables you to apply one of the following methods:
+|   Operation   | Method                  |       JWT       | arguments |
+| :-----------: | :---------------------- | :-------------: | :-------: |
+| GET ALL       | `GET /api/order`        |                 |           |
+| GET ONE       | `GET /api/order/:id`    |                 | [arg: id] |
+| CREATE ONE    | `POST /api/order`       | [require token] |           |
+| UPDATE ONE    | `PUT /api/order`        | [require token] |           |
+| DELETE ONE    | `DELETE /api/order/:id` | [require token] | [arg: id] |
+| GET BY USER A | `GET /api/order/u/:id`  | [require token] | [arg: id] |
+| GET BY USER C | `GET /api/order/uc/:id` | [require token] | [arg: id] |
 
-#### Products
-endpoint: `/product/`
+The last two methods enable user to get specific active/complete order from database depending on its status (OrderStatus=1: active, OrderStatus=2: complete)
 
-#### Orders
-endpoint: `/order/`
-
-##### GET ALL
-- Method: `GET`.
-- Parametes: `None`.
-- Success Respone: `Code 200` with JSON object contains all data from database.
-- Error Respone: `Code 404/401` with JSON object contains error message.
-- example: `/user/`.
-
-##### GET ONE
-- Method: `GET`.
-- Parametes: `:id`.
-- Success Respone: `Code 200` with JSON object contains the required data from database.
-- Error Respone: `Code 404/401` with JSON object contains error message.
-- example: `/user/1`.
-
-##### CREATE ONE
-- Method: `POST`.
-- Parametes: `None`.
-- Success Respone: `Code 200` with JSON object contains the created data from database.
-- Error Respone: `Code 404/401` with JSON object contains error message.
-
-##### UPDATE ONE
-- Method: `PUT`.
-- Parametes: `:id`.
-- Success Respone: `Code 200` with JSON object contains the updated data from database.
-- Error Respone: `Code 404/401` with JSON object contains error message.
-
-##### DELETE ONE
-- Method: `DELETE`.
-- Parametes: `:id`.
-- Success Respone: `Code 200` with JSON object contains the updated data from database.
-- Error Respone: `Code 404/401` with JSON object contains error message.
-
-#### Orders
-- Current Order by user (args: user id)[token required]
-- Completed Orders by user (args: user id)[token required]
-
-## Data Shapes
-#### Product
--  id
-- name
-- price
-
-#### User
-- id
-- firstName
-- lastName
-- password
-
-#### Orders
-- id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
-- status of order (active or complete)
-
+**now, all CRUD methods are available by API**
