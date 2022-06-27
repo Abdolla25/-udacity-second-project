@@ -22,6 +22,25 @@ This application is using of the following libraries:
 ### 1. Clone and prepare this project locally
 To get started, clone this repo and run `yarn` on your console to install all dependencies and get ready for work!
 
+#### full secret data at `.env` file should be as below:
+```
+PORT=3000
+
+ENV=dev
+
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_DB_DEV=storefront_dev
+POSTGRES_DB_TEST=storefront_test
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=123
+
+BCRYPT_PASSWORD=FwbAXxPD
+SALT_ROUNDS=10
+
+JWT_TOKEN_SECRET=Kkmds-wkf-sDSA
+```
+
 **Make sure to have all the libraries installed on your machine, most of them will be installed through `yarn` command...**
 
 ### 2. Prepare your databases
