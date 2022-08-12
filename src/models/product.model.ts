@@ -3,7 +3,7 @@ import db from '../database'
 export type Product = {
     id?: number;
     name: string;
-    Price: string;
+    Price: number;
 }
 
 export class ProductModel {
