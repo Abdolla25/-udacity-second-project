@@ -51,7 +51,7 @@ describe('Test order endpoint', function () {
         userName: 'testUser',
         firstName: 'First',
         lastName: 'Last',
-        password: 'Password',
+        password: 'Password'
     };
     beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         var createTest;
@@ -85,11 +85,13 @@ describe('Test order endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/api/order').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .post('/api/order')
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(user_spec_1.JWT))
                         .send({
                         OrderStatus: 1,
-                        uid: testData.id,
+                        uid: testData.id
                     })];
                 case 1:
                     response = _a.sent();
@@ -126,12 +128,14 @@ describe('Test order endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.put('/api/order').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .put('/api/order')
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(user_spec_1.JWT))
                         .send({
                         id: 1,
                         OrderStatus: 2,
-                        uid: testData.id,
+                        uid: testData.id
                     })];
                 case 1:
                     response = _a.sent();
@@ -144,7 +148,9 @@ describe('Test order endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.delete("/api/order/1").set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .delete("/api/order/1")
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(user_spec_1.JWT))];
                 case 1:
                     response = _a.sent();

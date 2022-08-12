@@ -65,11 +65,13 @@ describe('Test product endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/api/product').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .post('/api/product')
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(user_spec_1.JWT))
                         .send({
                         name: 'testProductRandom',
-                        Price: 4000,
+                        Price: 4000
                     })];
                 case 1:
                     response = _a.sent();
@@ -106,12 +108,14 @@ describe('Test product endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.put('/api/product').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .put('/api/product')
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(user_spec_1.JWT))
                         .send({
                         id: 2,
                         name: 'testProductRandomUpdated',
-                        Price: 4000,
+                        Price: 4000
                     })];
                 case 1:
                     response = _a.sent();
@@ -124,7 +128,9 @@ describe('Test product endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.delete("/api/product/1").set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .delete("/api/product/1")
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(user_spec_1.JWT))];
                 case 1:
                     response = _a.sent();

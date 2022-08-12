@@ -47,7 +47,7 @@ describe('Test Authentication from User Model', function () {
         userName: 'testUser',
         firstName: 'First',
         lastName: 'Last',
-        password: 'Password',
+        password: 'Password'
     };
     beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         var createTest;

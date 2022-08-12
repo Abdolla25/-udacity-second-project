@@ -60,13 +60,13 @@ var create = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: { order: order }
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
-                throw new Error("Error on create order!");
+                throw new Error('Error on create order!');
             case 3: return [2 /*return*/];
         }
     });
@@ -82,13 +82,13 @@ var getAll = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, order)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
-                throw new Error("Error on get all orders!");
+                throw new Error('Error on get all orders!');
             case 3: return [2 /*return*/];
         }
     });
@@ -104,13 +104,13 @@ var getOne = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, order)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _a.sent();
-                throw new Error("Error on get one orders!");
+                throw new Error('Error on get one orders!');
             case 3: return [2 /*return*/];
         }
     });
@@ -126,13 +126,13 @@ var updateOne = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, order)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
-                throw new Error("Error on update one order!");
+                throw new Error('Error on update one order!');
             case 3: return [2 /*return*/];
         }
     });
@@ -148,13 +148,13 @@ var deleteOne = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, order)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_5 = _a.sent();
-                throw new Error("Error on delete one orders!");
+                throw new Error('Error on delete one orders!');
             case 3: return [2 /*return*/];
         }
     });
@@ -170,13 +170,13 @@ var getOneUser = function (req, res) { return __awaiter(void 0, void 0, void 0, 
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, order)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_6 = _a.sent();
-                throw new Error("Error on get one orders!");
+                throw new Error('Error on get one orders!');
             case 3: return [2 /*return*/];
         }
     });
@@ -192,13 +192,13 @@ var getOneUserComplete = function (req, res) { return __awaiter(void 0, void 0, 
             case 1:
                 order = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, order)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_7 = _a.sent();
-                throw new Error("Error on get one orders!");
+                throw new Error('Error on get one orders!');
             case 3: return [2 /*return*/];
         }
     });

@@ -4,7 +4,11 @@ import * as orderHandlers from '../../handlers/orders.handlers'
 
 const user = express.Router()
 
-user.route('/').get(orderHandlers.getAll).post(validateJWT, orderHandlers.create).put(validateJWT, orderHandlers.updateOne)
+user
+  .route('/')
+  .get(orderHandlers.getAll)
+  .post(validateJWT, orderHandlers.create)
+  .put(validateJWT, orderHandlers.updateOne)
 
 user.route('/:id').get(orderHandlers.getOne).delete(validateJWT, orderHandlers.deleteOne)
 

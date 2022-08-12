@@ -52,7 +52,7 @@ describe('Test user endpoint', function () {
         userName: 'testUser',
         firstName: 'First',
         lastName: 'Last',
-        password: 'Password',
+        password: 'Password'
     };
     beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         var createTest;
@@ -86,10 +86,12 @@ describe('Test user endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/api/user/auth').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .post('/api/user/auth')
+                        .set('content-type', 'application/json')
                         .send({
                         userName: 'testUser',
-                        password: 'Password',
+                        password: 'Password'
                     })];
                 case 1:
                     response = _a.sent();
@@ -103,12 +105,11 @@ describe('Test user endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.post('/api/user').set('content-type', 'application/json')
-                        .send({
+                case 0: return [4 /*yield*/, request.post('/api/user').set('content-type', 'application/json').send({
                         userName: 'testUserRandom',
                         firstName: 'First',
                         lastName: 'Last',
-                        password: 'Password',
+                        password: 'Password'
                     })];
                 case 1:
                     response = _a.sent();
@@ -121,7 +122,9 @@ describe('Test user endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get('/api/user').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .get('/api/user')
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(exports.JWT))];
                 case 1:
                     response = _a.sent();
@@ -134,7 +137,9 @@ describe('Test user endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.get("/api/user/".concat(testData.id)).set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .get("/api/user/".concat(testData.id))
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(exports.JWT))];
                 case 1:
                     response = _a.sent();
@@ -147,14 +152,16 @@ describe('Test user endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.put('/api/user').set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .put('/api/user')
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(exports.JWT))
                         .send({
                         id: 2,
                         userName: 'testUserRandomUpdated',
                         firstName: 'First',
                         lastName: 'Last',
-                        password: 'PasswordUpdated',
+                        password: 'PasswordUpdated'
                     })];
                 case 1:
                     response = _a.sent();
@@ -167,7 +174,9 @@ describe('Test user endpoint', function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, request.delete("/api/user/".concat(testData.id)).set('content-type', 'application/json')
+                case 0: return [4 /*yield*/, request
+                        .delete("/api/user/".concat(testData.id))
+                        .set('content-type', 'application/json')
                         .set('authorization', "Bearer ".concat(exports.JWT))];
                 case 1:
                     response = _a.sent();

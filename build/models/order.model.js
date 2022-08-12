@@ -62,7 +62,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_1 = _a.sent();
-                        throw new Error("Error on create order!");
+                        throw new Error('Error on create order!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -86,7 +86,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows];
                     case 3:
                         error_2 = _a.sent();
-                        throw new Error("Error on get all orders!");
+                        throw new Error('Error on get all orders!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -110,7 +110,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_3 = _a.sent();
-                        throw new Error("Error on get one order!");
+                        throw new Error('Error on get one order!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -134,7 +134,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_4 = _a.sent();
-                        throw new Error("Error on update one order!");
+                        throw new Error('Error on update one order!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -158,7 +158,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_5 = _a.sent();
-                        throw new Error("Error on delete one order!");
+                        throw new Error('Error on delete one order!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -182,7 +182,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows];
                     case 3:
                         error_6 = _a.sent();
-                        throw new Error("Error on get one order!");
+                        throw new Error('Error on get one order!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -206,7 +206,7 @@ var OrderModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows];
                     case 3:
                         error_7 = _a.sent();
-                        throw new Error("Error on get one order!");
+                        throw new Error('Error on get one order!');
                     case 4: return [2 /*return*/];
                 }
             });

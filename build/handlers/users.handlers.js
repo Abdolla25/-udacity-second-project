@@ -65,13 +65,13 @@ var create = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 user = _a.sent();
                 res.json({
-                    message: "Create Done!",
+                    message: 'Create Done!',
                     data: { user: user }
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
-                throw new Error("Error on create user!");
+                throw new Error('Error on create user!');
             case 3: return [2 /*return*/];
         }
     });
@@ -87,13 +87,13 @@ var getAll = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 user = _a.sent();
                 res.json({
-                    message: "GET ALL Done!",
+                    message: 'GET ALL Done!',
                     data: __assign({}, user)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
-                throw new Error("Error on get all users!");
+                throw new Error('Error on get all users!');
             case 3: return [2 /*return*/];
         }
     });
@@ -109,13 +109,13 @@ var getOne = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 user = _a.sent();
                 res.json({
-                    message: "GET ONE Done!",
+                    message: 'GET ONE Done!',
                     data: __assign({}, user)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _a.sent();
-                throw new Error("Error on get one users!");
+                throw new Error('Error on get one users!');
             case 3: return [2 /*return*/];
         }
     });
@@ -131,13 +131,13 @@ var updateOne = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 1:
                 user = _a.sent();
                 res.json({
-                    message: "Update Done!",
+                    message: 'Update Done!',
                     data: __assign({}, user)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
-                throw new Error("Error on update one user!");
+                throw new Error('Error on update one user!');
             case 3: return [2 /*return*/];
         }
     });
@@ -153,13 +153,13 @@ var deleteOne = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 1:
                 user = _a.sent();
                 res.json({
-                    message: "Delete Done!",
+                    message: 'Delete Done!',
                     data: __assign({}, user)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_5 = _a.sent();
-                throw new Error("Error on delete one users!");
+                throw new Error('Error on delete one users!');
             case 3: return [2 /*return*/];
         }
     });
@@ -177,16 +177,16 @@ var authenticateOne = function (req, res) { return __awaiter(void 0, void 0, voi
                 JWT = jsonwebtoken_1.default.sign({ user: user }, config_1.JWT_TOKEN);
                 if (!user) {
                     return [2 /*return*/, res.json({
-                            message: "Error on authenticate user!"
+                            message: 'Error on authenticate user!'
                         })];
                 }
                 return [2 /*return*/, res.json({
-                        message: "Authenticate Done!",
+                        message: 'Authenticate Done!',
                         data: __assign(__assign({}, user), { JWT: JWT })
                     })];
             case 2:
                 error_6 = _a.sent();
-                throw new Error("Error on authenticate user!");
+                throw new Error('Error on authenticate user!');
             case 3: return [2 /*return*/];
         }
     });

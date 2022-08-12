@@ -14,11 +14,11 @@ var validateJWT = function (req, _res, next) {
             next();
         }
         else {
-            throw new Error("Error on validate request!");
+            throw new Error('Error on validate request!');
         }
     }
     catch (error) {
-        throw new Error("Error on validate request!");
+        throw new Error('Error on validate request!');
     }
 };
 exports.validateJWT = validateJWT;

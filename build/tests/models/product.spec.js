@@ -45,7 +45,7 @@ var productModel = new product_model_1.ProductModel();
 describe('Test Product Model', function () {
     var testData = {
         name: 'testProduct',
-        Price: 3000,
+        Price: 3000
     };
     afterAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         var conn, sql;
@@ -108,7 +108,7 @@ describe('Test Product Model', function () {
                     testUpdatedData = {
                         id: 1,
                         name: 'testUpdatedProduct',
-                        Price: 5000,
+                        Price: 5000
                     };
                     return [4 /*yield*/, productModel.updateOne(testUpdatedData)];
                 case 1:

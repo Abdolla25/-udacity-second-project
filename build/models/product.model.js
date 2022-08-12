@@ -62,7 +62,7 @@ var ProductModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_1 = _a.sent();
-                        throw new Error("Error on create product!");
+                        throw new Error('Error on create product!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -86,7 +86,7 @@ var ProductModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows];
                     case 3:
                         error_2 = _a.sent();
-                        throw new Error("Error on get all products!");
+                        throw new Error('Error on get all products!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -110,7 +110,7 @@ var ProductModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_3 = _a.sent();
-                        throw new Error("Error on get one product!");
+                        throw new Error('Error on get one product!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -134,7 +134,7 @@ var ProductModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_4 = _a.sent();
-                        throw new Error("Error on update one product!");
+                        throw new Error('Error on update one product!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -158,7 +158,7 @@ var ProductModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_5 = _a.sent();
-                        throw new Error("Error on delete one product!");
+                        throw new Error('Error on delete one product!');
                     case 4: return [2 /*return*/];
                 }
             });

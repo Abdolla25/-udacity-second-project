@@ -61,14 +61,19 @@ var UserModel = /** @class */ (function () {
                     case 1:
                         conn = _a.sent();
                         sql = "INSERT INTO users (userName, firstName, lastName, password) VALUES ($1, $2, $3, $4) returning *;";
-                        return [4 /*yield*/, conn.query(sql, [user.userName, user.firstName, user.lastName, hash(user.password)])];
+                        return [4 /*yield*/, conn.query(sql, [
+                                user.userName,
+                                user.firstName,
+                                user.lastName,
+                                hash(user.password)
+                            ])];
                     case 2:
                         result = _a.sent();
                         conn.release();
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_1 = _a.sent();
-                        throw new Error("Error on create user!");
+                        throw new Error('Error on create user!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -92,7 +97,7 @@ var UserModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows];
                     case 3:
                         error_2 = _a.sent();
-                        throw new Error("Error on get all users!");
+                        throw new Error('Error on get all users!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -116,7 +121,7 @@ var UserModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_3 = _a.sent();
-                        throw new Error("Error on get one user!");
+                        throw new Error('Error on get one user!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -133,14 +138,20 @@ var UserModel = /** @class */ (function () {
                     case 1:
                         conn = _a.sent();
                         sql = "UPDATE users SET id=$1, userName=$2, firstname=$3, lastname=$4, password=$5 WHERE id=$1 returning *;";
-                        return [4 /*yield*/, conn.query(sql, [user.id, user.userName, user.firstName, user.lastName, hash(user.password)])];
+                        return [4 /*yield*/, conn.query(sql, [
+                                user.id,
+                                user.userName,
+                                user.firstName,
+                                user.lastName,
+                                hash(user.password)
+                            ])];
                     case 2:
                         result = _a.sent();
                         conn.release();
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_4 = _a.sent();
-                        throw new Error("Error on update one user!");
+                        throw new Error('Error on update one user!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -164,7 +175,7 @@ var UserModel = /** @class */ (function () {
                         return [2 /*return*/, result.rows[0]];
                     case 3:
                         error_5 = _a.sent();
-                        throw new Error("Error on delete one user!");
+                        throw new Error('Error on delete one user!');
                     case 4: return [2 /*return*/];
                 }
             });
@@ -197,7 +208,7 @@ var UserModel = /** @class */ (function () {
                         return [2 /*return*/, null];
                     case 5:
                         error_6 = _a.sent();
-                        throw new Error("Error on authenticate one user!");
+                        throw new Error('Error on authenticate one user!');
                     case 6: return [2 /*return*/];
                 }
             });

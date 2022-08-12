@@ -47,7 +47,7 @@ describe('Test User Model', function () {
         userName: 'testUser',
         firstName: 'First',
         lastName: 'Last',
-        password: 'Password',
+        password: 'Password'
     };
     afterAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         var conn, sql;
@@ -112,7 +112,7 @@ describe('Test User Model', function () {
                         userName: 'testUpdatedUser',
                         firstName: 'First',
                         lastName: 'Last',
-                        password: 'UpdatedPassword',
+                        password: 'UpdatedPassword'
                     };
                     return [4 /*yield*/, userModel.updateOne(testUpdatedData)];
                 case 1:

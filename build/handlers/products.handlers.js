@@ -60,13 +60,13 @@ var create = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 product = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: { product: product }
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
-                throw new Error("Error on create product!");
+                throw new Error('Error on create product!');
             case 3: return [2 /*return*/];
         }
     });
@@ -82,13 +82,13 @@ var getAll = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 product = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, product)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
-                throw new Error("Error on get all products!");
+                throw new Error('Error on get all products!');
             case 3: return [2 /*return*/];
         }
     });
@@ -104,13 +104,13 @@ var getOne = function (req, res) { return __awaiter(void 0, void 0, void 0, func
             case 1:
                 product = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, product)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _a.sent();
-                throw new Error("Error on get one products!");
+                throw new Error('Error on get one products!');
             case 3: return [2 /*return*/];
         }
     });
@@ -126,13 +126,13 @@ var updateOne = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 1:
                 product = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, product)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
-                throw new Error("Error on update one product!");
+                throw new Error('Error on update one product!');
             case 3: return [2 /*return*/];
         }
     });
@@ -148,13 +148,13 @@ var deleteOne = function (req, res) { return __awaiter(void 0, void 0, void 0, f
             case 1:
                 product = _a.sent();
                 res.json({
-                    message: "Done!",
+                    message: 'Done!',
                     data: __assign({}, product)
                 });
                 return [3 /*break*/, 3];
             case 2:
                 error_5 = _a.sent();
-                throw new Error("Error on delete one products!");
+                throw new Error('Error on delete one products!');
             case 3: return [2 /*return*/];
         }
     });

@@ -47,13 +47,13 @@ var orderModel = new order_model_1.OrderModel();
 describe('Test Order Model', function () {
     var testData = {
         OrderStatus: 1,
-        uid: 1,
+        uid: 1
     };
     var testUserData = {
         userName: 'testUser',
         firstName: 'First',
         lastName: 'Last',
-        password: 'Password',
+        password: 'Password'
     };
     beforeAll(function () { return __awaiter(void 0, void 0, void 0, function () {
         var createTest;
@@ -128,7 +128,7 @@ describe('Test Order Model', function () {
                     testUpdatedData = {
                         id: 1,
                         OrderStatus: 2,
-                        uid: 1,
+                        uid: 1
                     };
                     return [4 /*yield*/, orderModel.updateOne(testUpdatedData)];
                 case 1:
