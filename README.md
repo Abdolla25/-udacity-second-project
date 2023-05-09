@@ -24,7 +24,7 @@ To get started, clone this repo and run `yarn` on your console to install all de
 
 #### full secret data at `.env` file should be as below:
 ```
-PORT=3000
+PORT=3001
 
 ENV=dev
 
